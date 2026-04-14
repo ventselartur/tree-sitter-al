@@ -1336,8 +1336,17 @@ module.exports = grammar({
     labels_section: $ => seq(
       $.labels_keyword,
       '{',
-      repeat($.label_declaration),
+      repeat(choice($.label_declaration, $.preproc_conditional_labels)),
       '}'
+    ),
+
+    // Preprocessor conditionals at labels section level (around label declarations)
+    preproc_conditional_labels: $ => seq(
+      $.preproc_if,
+      repeat($.label_declaration),
+      repeat(seq($.preproc_elif, repeat($.label_declaration))),
+      optional(seq($.preproc_else, repeat($.label_declaration))),
+      $.preproc_endif,
     ),
 
     // name = 'value', Locked = true, Comment = 'text';

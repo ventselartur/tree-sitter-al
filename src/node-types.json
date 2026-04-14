@@ -11945,6 +11945,10 @@
         {
           "type": "labels_keyword",
           "named": true
+        },
+        {
+          "type": "preproc_conditional_labels",
+          "named": true
         }
       ]
     }
@@ -16569,6 +16573,37 @@
         },
         {
           "type": "key_declaration",
+          "named": true
+        },
+        {
+          "type": "preproc_elif",
+          "named": true
+        },
+        {
+          "type": "preproc_else",
+          "named": true
+        },
+        {
+          "type": "preproc_endif",
+          "named": true
+        },
+        {
+          "type": "preproc_if",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "preproc_conditional_labels",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "label_declaration",
           "named": true
         },
         {
